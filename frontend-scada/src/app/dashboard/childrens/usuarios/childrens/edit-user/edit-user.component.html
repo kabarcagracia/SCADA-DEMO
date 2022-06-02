@@ -1,0 +1,172 @@
+<div class="card mb-5 shadow">
+    <div class="card-body m-0">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/usuarios">Usuarios</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Editar Usuario: {{ usuario}}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 border p-3" style="background-color: #fff;">
+            <form>
+                <div class="row d-flex p-0 p-sm-4">
+                    <div class="col-12">
+                        <h3>Formulario Editar Usuario: {{precio | currency:'CLP':'symbol':'1.2-4'}}</h3>
+                        <hr>
+                    </div>
+                    <div class="col-12 col-sm-9 order-2 order-sm-1">
+                        <div class="row h-100 d-flex align-items-start align-content-start  flex-wrap">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="nameUser"
+                                        placeholder="nameUser"
+                                        value="{{editUser.name}}"
+                                        
+                                    >
+                                    <label for="nameUser">Nombre</label>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="lastnameUser"
+                                        placeholder="lastnameUser"
+                                        value="{{editUser.lastnames}}"
+                                        
+                                    >
+                                    <label for="lastnameUser">Apellidos</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="email" 
+                                        class="form-control text-uppercase" 
+                                        id="emailUser" 
+                                        placeholder="nameUser"
+                                        value="{{editUser.email}}"
+                                        
+                                    >
+                                    <label for="correo">Correo Electrónico</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="date" 
+                                        class="form-control text-uppercase" 
+                                        id="birthUser" 
+                                        placeholder="nameUser"
+                                        value="{{editUser.birth | date:'yyyy-MM-dd'}}"
+                                        
+                                        
+                                    >
+                                    <label for="birthUser">Fecha Nacimiento</label>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating  mb-4">
+                                    <input 
+                                        type="number" 
+                                        class="form-control text-uppercase" 
+                                        id="phoneUser"
+                                        placeholder="nameUser"
+                                        value="{{editUser.phone}}"
+                                        
+                                        >
+                                    <label for="phoneUser">Telefono</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="rutUser" 
+                                        placeholder="nameUser"
+                                        value="{{editUser.rut}}"
+                                    >
+                                    <label for="rutUser">Rut</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3 order-1 order-sm-2 mb-4 mb-sm-0">
+                        <img src="assets/usuario.jpg" class="img-thumbnail mx-auto d-block rounded" alt="..." width="200">
+                    </div>
+                    <div class="col-12 mt-3 order-3">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        placeholder="nameUser"
+                                        
+                                    >
+                                    <label for="floatingPassword">Contraseña</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input 
+                                        type="password" 
+                                        placeholder="nameUser"
+                                        class="form-control"
+                                        
+                                    >
+                                    <label for="floatingPassword">Repetir Contraseña</label>
+                                </div>
+                            </div>
+                            <!--<div class="col-12">
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+                            </div>-->
+                            <!--<div class="col-12 mb-3">
+                                <h5 class="mb-3">Privilegios Usuario</h5>
+                                <hr>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Usuarios
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Maquinas
+                                    </label>
+                                  </div>
+                            </div>-->
+
+                            <div class="col-12" *ngIf="formEditUser.valid; else disabled">
+                                <div class=" d-grid gap-2" >
+                                    <button class="btn btn-primary btn-lg" type="submit">Editar usuario</button>
+                                </div>
+                                
+                            </div>
+                            <ng-template #disabled>   
+                                <div class=" d-grid gap-2" >           
+                                    <button class="btn btn-primary btn-lg" type="submit" disabled>Editar Usuario</button>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

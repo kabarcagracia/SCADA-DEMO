@@ -1,0 +1,124 @@
+<div class="card mb-3 shadow">
+    <div class="card-body m-0">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item active"><a routerLink="/dashboard/maquinas">MAQUINAS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CREAR MAQUINA</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6 border p-3" style="background-color: #fff;">
+            <form [formGroup]="formCreateMachine" (ngSubmit)="onSubmit()">
+                <div class="row d-flex p-0 p-sm-4">
+                    <div class="col-12">
+                        <h3>Formulario Crear Maquina</h3>
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="nameMachine"
+                                placeholder="nameUser"
+                                formControlName="nameMachine"
+                                [ngClass]="{'is-valid': formValid('nameMachine'), 'is-invalid': formInvalid('nameMachine')}"
+                            >
+                            <label for="nameMachine">Nombre Maquina</label>
+                           
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <textarea 
+                                class="form-control"
+                                placeholder="Leave a comment here" 
+                                id="floatingTextarea"
+                                formControlName="description"
+                            ></textarea>
+                            <label for="floatingTextarea">Descripción</label>
+                            <div *ngIf="!formInvalid('description'); else descriptionFalse">                            
+                                <small>[*] campo opcional</small>
+                            </div>
+                            <ng-template #descriptionFalse>
+                                <small class="text-danger">maxima cantidad de caracteres 25.</small>
+                            </ng-template>
+                          </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" formControlName="tracker" type="checkbox" id="flexCheckDefault" (change)="onChange($event)">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                ¿Maquina equipada con GPS?
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12" formGroupName="location" *ngIf="viewMapLocation; else trackerDevice">
+                        <div class="col-12">
+                            <p class="lead">Seleccionar ubicación de la maquina</p>
+                        </div>
+                        <app-geocoding (position)="onPosition($event)"></app-geocoding>
+                        <input type="number" formControlName="lat" class="invisible">
+                        <input type="number" formControlName="lng" class="invisible">
+                    </div>
+                    <ng-template formGroupName="trackerData" #trackerDevice>
+                        <div class="col-12">
+                            <p class="lead">Crear dispositivo de seguimiento (GPS)</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="nameMachine"
+                                    placeholder="nameUser"
+                                    formControlName="nameDevice" 
+                                      >
+                                <label for="nameMachine">Nombre Dispositivo</label>
+                               
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="nameMachine"
+                                    placeholder="nameUser"
+                                    formControlName="idDevice" 
+                                      >
+                                <label for="nameMachine">Identificador Dispositivo</label>
+                               
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <textarea 
+                                    class="form-control"
+                                    placeholder="Leave a comment here" 
+                                    id="floatingTextarea"
+                                    formControlName="description"
+                                ></textarea>
+                                <label for="floatingTextarea">Descripción</label>
+                                <small>[*] campo opcional</small>
+                              </div>
+                        </div>
+                    </ng-template>
+                    <div class="col-12" *ngIf="formCreateMachine.valid; else disabled">
+                        <div class=" d-grid gap-2" >
+                            <button class="btn btn-primary btn-lg" type="submit">Crear Maquina</button>
+                        </div>
+                    </div>
+                    <ng-template #disabled>   
+                        <div class=" d-grid gap-2" >           
+                            <button class="btn btn-primary btn-lg" type="submit" disabled>Crear Maquina</button>
+                        </div>
+                    </ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+#fondo {
+    background: #23356E;
+    background: linear-gradient(347deg, rgba(42,44,59,1) 0%, rgba(0,0,70,0.8181022408963585) 100%);
+    min-height: 100vh;
+    width: 100vw;
+}

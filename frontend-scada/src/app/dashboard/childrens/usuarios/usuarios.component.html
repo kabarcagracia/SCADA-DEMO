@@ -1,0 +1,88 @@
+<div class="card mb-5 shadow">
+    <div class="card-body m-0 py-2 px-3 d-flex align-items-center justify-content-between">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/inicio">INICIO</a></li>
+                <li class="breadcrumb-item active" aria-current="page">USUARIOS</li>
+            </ol>
+        </nav>
+        <button class="btn btn-primary" routerLink="/dashboard/crearUsuario"> CREAR USUARIO</button>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 border p-3" style="background-color: #fff;">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border responsive hover">
+                <thead>
+                    <tr>
+                        <th>USUARIO</th>
+                        <th>CORREO</th>
+                        <th>RUT</th>
+                        <th>CREADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td>{{usuario.name}} {{usuario.lastnames}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.rut}}</td>
+                        <td>{{usuario.createUser}}</td>
+                        <td class="d-flex justify-content-around">
+                            <button type="button" class="btn btn-danger d-flex" (click)='deleteUser(usuario)'>
+                                <span class="material-icons" style="font-size: 1.4em;color: #fff;">
+                                    delete
+                                </span>
+                            </button>
+                            
+
+
+                        <button type="button" class="btn btn-primary d-flex" routerLink="/dashboard/editarUsuario/{{usuario._id}}">
+                            <span class="material-icons" style="font-size: 1.4em;color: #fff;">
+                                edit
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-warning d-flex">
+                            <span class="material-icons" style="font-size: 1.4em;color: #fff;">
+                                picture_as_pdf
+                            </span>
+                        </button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>   
+            <ng-container *ngIf="statusModal">
+                <!-- Modal -->
+            <div class="modal sasa show" tabindex="-1" aria-labelledby="exampleModalLabel" role="dialog" style="display: block; background-color: rgba(0,0,0,0.5);">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ELIMINAR USUARIO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="lead text-center">¿Estas seguro que quieres eliminar al usuario {{nameUser}}? Recuerda que ya no podras: </p>
+                        <div class="alert alert-warning" role="alert">
+                            <ul>
+                                <li>Ver informacion personal.</li>
+                                <li>Ver los cambios realizados en la App por el usuario.</li>
+                                <li>Ver maquinas administradas.</li>
+                                <li>entre otras.</li>
+
+                                {{idUser}}
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+                    <button type="button" class="btn btn-danger" (click)="eliminar(idUser)">Si, Eliminar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </ng-container>
+            
+        </div>
+    </div>
+</div>

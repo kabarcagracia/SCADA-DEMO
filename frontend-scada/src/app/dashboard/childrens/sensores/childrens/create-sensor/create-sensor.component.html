@@ -1,0 +1,132 @@
+<div class="card mb-3 shadow">
+    <div class="card-body m-0">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item active"><a routerLink="/dashboard/maquinas">DISPOSITIVOS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CREAR SENSOR</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6 border p-3" style="background-color: #fff;">
+            <form [formGroup]="formSensor" (ngSubmit)="onSubmit()">
+                <div class="row d-flex p-0 p-sm-4">
+                    <div class="col-12">
+                        <h3>Formulario Crear Sensores</h3>
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="idMachine"
+                                placeholder="idMachine"
+                                formControlName="idMachine"
+                                readonly
+                            >
+                            <label for="idMachine">Identificador Maquina</label> 
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input 
+                                type="text" 
+                                class="form-control disabledTextInput" 
+                                id="idDevice"
+                                placeholder="idDevice"
+                                formControlName="idDevice"
+                                readonly
+                            >
+                            <label for="idDevice">Identificador Dispositivo</label> 
+                        </div>
+                    </div>
+
+                    <div class="col-12 px-4 mb-3" formArrayName="data">
+                        <div *ngFor="let skill of skills.controls; let i=index">
+                            <div class="row border py-3 mb-3" [formGroupName]="i">
+                                <div class="col-12 d-flex row">
+                                    <div class="col-6"><p class="lead">Sensor {{i+1}}</p></div>
+                                    <div class="col-6 p-0">
+                                        <button class="btn btn-danger btn-sm float-end d-flex" (click)="removeSkill(i)">
+                                            <span class="material-icons">
+                                                delete
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="nameSensor"
+                                            placeholder="nameSensor"
+                                            formControlName="nameSensor"
+                                        >
+                                        <label for="nameSensor">Nombre Sensor</label> 
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="idSensor"
+                                            placeholder="idSensor"
+                                            formControlName="idSensor"
+                                        >
+                                        <label for="idSensor">Identificador Sensor</label> 
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="typeSensor" aria-label="Floating label select example" formControlName="typeSensor">
+                                            <option value="ai" [selected]="true">Entrada Analoga</option>
+                                            <option value="di">Entrada Digital</option>
+                                            <option value="do">Salida Digital</option>
+                                        </select>
+                                        <label for="typeSensor">Tipo de Sensor</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-floating ">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="variable">
+                                        <label for="floatingInput">Variable Medición (ejemplo: °C)</label>
+                                    </div>
+                                    <small>[**] Opcional para sensores de tipo digital</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 row" *ngIf="formSensor.valid; else disabledButtons">
+                        <div class="col-6">
+                            <div class="d-grid"> 
+                                <button class="btn btn-primary btn-lg" type="button" (click)="addSkills()">Añadir Sensor</button>          
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-grid" >     
+                                <button class="btn btn-primary btn-lg" type="submit">Crear Sensor</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #disabledButtons>   
+                        <div class="col-6">
+                            <div class="d-grid"> 
+                                <button class="btn btn-primary btn-lg" type="button" (click)="addSkills()">Añadir Sensor</button>          
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-grid" >     
+                                <button class="btn btn-primary btn-lg" type="submit" disabled>Crear Sensor</button>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

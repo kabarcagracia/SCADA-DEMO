@@ -1,0 +1,97 @@
+<div class="card mb-3 shadow">
+    <div class="card-body m-0">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/maquinas">MAQUINAS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CREAR DISPOSITIVO</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6 border p-3" style="background-color: #fff;">
+            <form [formGroup]="formCreateDevice" (ngSubmit)="onSubmit()">
+                <div class="row d-flex p-0 p-sm-4">
+                    <div class="col-12">
+                        <h3>Formulario Crear Dispositivo</h3>
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="nameMachine"
+                                placeholder="nameUser"
+                                readonly
+                                formControlName="idMachine"
+                                value="{{idMaquina}}"
+                            >
+                            <label for="nameMachine">Identificador Maquina</label>
+                        </div>
+                    </div>
+                    <div formGroupName = "data">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="nameMachine"
+                                    placeholder="nameUser"
+                                    formControlName="nameDevice"
+                                >
+                                <label for="nameMachine">Nombre Dispositivo</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="nameMachine"
+                                    placeholder="nameUser"
+                                    formControlName="idDevice"
+                                >
+                                <label for="nameMachine">Identificador</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <textarea 
+                                    class="form-control"
+                                    placeholder="Leave a comment here" 
+                                    id="floatingTextarea"
+                                    formControlName="description"
+                                ></textarea>
+                                <label for="floatingTextarea">Descripción</label>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <p class="lead"> Ubicación del Dispositivo</p>
+                            <app-geocoding (position)="onPosition($event)"></app-geocoding>
+                        </div>
+                    </div>
+                    <div class="col-12" *ngIf="formCreateDevice.valid; else disabled">
+                        <div class=" d-grid gap-2" >
+                            <button class="btn btn-primary btn-lg" type="submit">Crear Dispositivo</button>
+                        </div>
+                    </div>
+                    <ng-template #disabled>   
+                        <div class=" d-grid gap-2" >           
+                            <button class="btn btn-primary btn-lg" type="submit" disabled>Crear Dispositivo</button>
+                        </div>
+                    </ng-template>
+
+                   
+                    <!--<div class="col-12">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                          </div>
+                    </div>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

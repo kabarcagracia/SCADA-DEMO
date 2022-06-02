@@ -1,0 +1,91 @@
+<div class="card mb-2 shadow">
+    <div class="card-body m-0 py-2 px-3 d-flex align-items-center justify-content-between">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/maquinas">MAQUINAS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">GPS</li>
+            </ol>
+        </nav>
+        <button class="btn btn-primary d-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <span class="material-icons">
+                data_object
+            </span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">JSON DATA</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              {{dataSocket | json}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-start mb-5 align-items-stretch" >
+        <div class="col-12 col-sm-6 col-xl-4 py-1 px-0 px-sm-1">
+            <app-card-sparkline 
+                [titleCard]="'SEÑAL GPRS'" 
+                [subTitleCard]="'Calidad Señal'"
+                [iconCard]="'podcasts'"
+                [varCard]="'%'"
+                [dataNew]="dataSocket?.data.wifi"
+                [color]="'#aaa'" 
+                [dataObject]="[]" 
+                [variable]="'signal'"
+            ></app-card-sparkline>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-4 py-1 px-0 px-sm-1">
+            <app-card-sparkline 
+                [titleCard]="'BATERIA'" 
+                [subTitleCard]="'Estado Actual'"
+                [iconCard]="'battery_charging_full'"
+                [varCard]="'volts'"
+                [dataNew]="dataSocket?.data.battery"
+                [valueDanger]="5.2"
+                [msgDanger]="'sobrecargada'"
+                [valueWarning]="3.5"
+                [msgWarning]="'descargandose'"
+                [msgGood]="'capacidad optima'"
+                [color]="'#aaa'" 
+                [dataObject]="[]" 
+                [variable]="'battery'"
+            ></app-card-sparkline>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-4 py-1 px-0 px-sm-1">
+            <div class="h-100 row m-0 d-flex flex-column align-items-stretch justify-content-stretch" style="background-color: #fff;">
+                <div class="col-12 row p-0 m-0">
+                    <div class="col-8 p-3">
+                        <p class="lead">{{ nameDevice | uppercase}}</p>
+                        <figure class="mt-0 p-0">
+                            <blockquote class="blockquote">
+                                <p><b class="lead pt-0 mb-0">{{ idDevice}}</b></p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer">
+                                {{ description}}<cite title="Source Title"></cite>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-4 d-flex align-items-center justify-content-center">
+                        <span class="material-icons" style="font-size: 5em;color: rgb(180, 180, 187);">
+                            info
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-xl-6 py-1 px-0 px-sm-1">
+            <div class="h-100 row m-0 d-flex flex-column align-items-stretch justify-content-stretch p-0" style="background-color: #fff;">
+                <app-track-point class="p-0 m-0" [lat]="dataSocket.data.lat" [lng]="dataSocket.data.lng"></app-track-point>
+            </div>
+            
+        </div>
+        <div class="col-12 col-sm-12 col-xl-6 py-1 px-0 px-sm-1">
+            <div class="h-100 row m-0 d-flex flex-column align-items-stretch justify-content-stretch p-0" style="background-color: #fff;">
+                <app-track-route class="p-0 m-0" [lat]="dataSocket.data.lat" [lng]="dataSocket.data.lng"></app-track-route>
+            </div>
+            
+        </div>
+    </div>
+</div>

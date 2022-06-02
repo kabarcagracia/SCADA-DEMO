@@ -1,0 +1,279 @@
+<div class="card mb-2 shadow">
+    <div class="card-body">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/inicio">MAQUINAS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">DISPOSITIVOS</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid m-0 p-0">
+    <div *ngIf="statusLoading; else blockData">
+        <div class="row d-flex justify-content-start p-0 m-0" >
+            <div class="col-12 col-sm-6 col-xl-3 p-1 ">
+                <div class="rounded border shadow row py-4 m-0" aria-hidden="true" style="background-color: #fff;">
+                    <div class="row m-0">
+                        <div class="col-12 text-center placeholder-glow">
+                            <p class="lead mb-0 placeholder d-block mb-2">nameDevice</p>
+                            <small class="lead mb-0 placeholder"> location device </small>
+                            <hr>
+                            <p class="muted placeholder d-block mb-2">description</p>
+                            <p class="muted placeholder w-100">description</p>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center my-4">
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="mx-2">
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible">
+                                        timeline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible"> 
+                                        leaderboard
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3 p-1 ">
+                <div class="rounded border shadow row py-4 m-0" aria-hidden="true" style="background-color: #fff;">
+                    <div class="row m-0">
+                        <div class="col-12 text-center placeholder-glow">
+                            <p class="lead mb-0 placeholder d-block mb-2">nameDevice</p>
+                            <small class="lead mb-0 placeholder"> location device </small>
+                            <hr>
+                            <p class="muted placeholder d-block mb-2">description</p>
+                            <p class="muted placeholder w-100">description</p>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center my-4">
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="mx-2">
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible">
+                                        timeline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible"> 
+                                        leaderboard
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3 p-1 ">
+                <div class="rounded border shadow row py-4 m-0" aria-hidden="true" style="background-color: #fff;">
+                    <div class="row m-0">
+                        <div class="col-12 text-center placeholder-glow">
+                            <p class="lead mb-0 placeholder d-block mb-2">nameDevice</p>
+                            <small class="lead mb-0 placeholder"> location device </small>
+                            <hr>
+                            <p class="muted placeholder d-block mb-2">description</p>
+                            <p class="muted placeholder w-100">description</p>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center my-4">
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="mx-2">
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible">
+                                        timeline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible"> 
+                                        leaderboard
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3 p-1 ">
+                <div class="rounded border shadow row py-4 m-0" aria-hidden="true" style="background-color: #fff;">
+                    <div class="row m-0">
+                        <div class="col-12 text-center placeholder-glow">
+                            <p class="lead mb-0 placeholder d-block mb-2">nameDevice</p>
+                            <small class="lead mb-0 placeholder"> location device </small>
+                            <hr>
+                            <p class="muted placeholder d-block mb-2">description</p>
+                            <p class="muted placeholder w-100">description</p>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center my-4">
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="mx-2">
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="spinner-grow text-secondary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible">
+                                        timeline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-warning d-flex px-4 placeholder">
+                                    <span class="material-icons invisible"> 
+                                        leaderboard
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #blockData>
+        <div *ngIf="statusDevices; else disabled">
+            <div class="row d-flex justify-content-start p-0 m-0" >
+                <div *ngFor="let dispositivo of dispositivos; let i = index" class="col-12 col-sm-6 col-xl-3 p-1 ">
+                    <div class="rounded border shadow row py-4 m-0" style="background-color: #fff;">
+                        <div class="row m-0">
+                            <div class="col-12 text-center ">
+                                <p class="lead mb-0">{{dispositivo.nameDevice | uppercase}}</p>
+                                <small class="lead mb-0">{{dispositivo.idDevice}}</small>
+                                <hr>
+                                <p class="muted">{{dispositivo.description}}</p>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center my-4">
+                                <div>
+                                    <app-gauge-sparkline [valueData]="this.cantidadSensores[i].ai"></app-gauge-sparkline>
+                                    <p class="lead text-center"> {{this.cantidadSensores[i].ai}} DI</p>
+                                </div>
+                                <div>
+                                    <app-gauge-sparkline ></app-gauge-sparkline>
+                                    <p class="lead text-center"> {{this.cantidadSensores[i].di}} DO</p>
+                                </div>
+                                <div>
+                                    <app-gauge-sparkline ></app-gauge-sparkline>
+                                    <p class="lead text-center"> {{this.cantidadSensores[i].do}} AI</p>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center">
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/crearSensor/{{dispositivo._id}}/{{idMaquina}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Crear Sensor">
+                                        <span class="material-icons">
+                                            add
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/sensores/{{dispositivo._id}}/{{idMaquina}}" data-bs-toggle="tooltip" data-bs-placement="top" title="ver información en tiempo real">
+                                        <span class="material-icons">
+                                            timeline
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/dispositivos/{{dispositivo._id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="ver historial de datos" disabled>
+                                        <span class="material-icons"> 
+                                            leaderboard
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template  #disabled>
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-8 border p-2 p-sm-5 mb-2 text-center rounded shadow" style="background-color: #fff;">
+                    <span class="material-icons mb-2" style="font-size: 7em; color: rgb(180, 180, 187);">
+                        memory
+                    </span>
+                    
+                    <figure class="mt-0 p-0">
+                        <p class="lead">AUN NO TIENES DISPOSITIVOS ASOCIADOS A ESTA MAQUINA.</p>
+                        <figcaption class="blockquote-footer">
+                            Comienza a monitorear tus dispositivos IoT.
+                        </figcaption>
+                        <blockquote class="blockquote">
+                            <button class="btn btn-danger mb-2 d-inline" routerLink="/dashboard/crearDispositivo/{{idMaquina}}">Crear Dispositivo</button>
+                        </blockquote>
+                    </figure>
+                </div>
+            </div>
+        </ng-template>
+    </ng-template>
+    
+</div>

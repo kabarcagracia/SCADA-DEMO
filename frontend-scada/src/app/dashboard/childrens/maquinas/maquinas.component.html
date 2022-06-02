@@ -1,0 +1,221 @@
+<div class="card mb-2 shadow">
+    <div class="card-body m-0 py-2 px-3 d-flex align-items-center justify-content-between">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/inicio">INICIO</a></li>
+                <li class="breadcrumb-item active" aria-current="page">MAQUINAS</li>
+            </ol>
+        </nav>
+        <button class="btn btn-primary" routerLink="/dashboard/crearMaquina"> CREAR MAQUINA</button>
+    </div>
+</div>
+<div class="container-fluid m-0 p-0">
+    <div *ngIf="statusLoading; else blockData">
+        <div class="row d-flex justify-content-center px-2">
+            <div class="col-12 col-xl-6 p-1">
+                <div class="rounded border shadow row p-0 m-0 h-100" aria-hidden="true" style="background-color: #fff;">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <img src="assets/loading.png" width="100" height="1000" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col-8 py-3 h-100 d-flex flex-column justify-content-stretch">
+                        <div>
+                            <p class="lead placeholder-glow">
+                                <b class="placeholder w-50"><p class="invisible m-0">TITULO PRINCIPAL</p></b>
+                            </p>
+                        </div>
+                        <div class="mt-2 placeholder-glow px-1">
+                            <p class="text-muted placeholder w-100"></p>
+                            <p class="text-muted placeholder w-100"></p>
+                        </div>
+                        <div class="d-flex justify-content-end align-content-end h-100">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible">
+                                        add_circle_outline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible"> 
+                                        sensors  
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible"> 
+                                        delete  
+                                    </span>
+                                </button>
+                            </div> 
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible">
+                                        near_me
+                                    </span>
+                                </button>
+                            </div>    
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6 p-1">
+                <div class="rounded border shadow row p-0 m-0 h-100" aria-hidden="true" style="background-color: #fff;">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <img src="assets/loading.png" width="100" height="1000" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col-8 py-3 h-100 d-flex flex-column justify-content-stretch">
+                        <div>
+                            <p class="lead placeholder-glow">
+                                <b class="placeholder w-50"><p class="invisible m-0">TITULO PRINCIPAL</p></b>
+                            </p>
+                        </div>
+                        <div class="mt-2 placeholder-glow px-1">
+                            <p class="text-muted placeholder w-100"></p>
+                            <p class="text-muted placeholder w-100"></p>
+                        </div>
+                        <div class="d-flex justify-content-end align-content-end h-100">
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible">
+                                        add_circle_outline
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible"> 
+                                        sensors  
+                                    </span>
+                                    
+                                </button>
+                            </div>
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible"> 
+                                        delete  
+                                    </span>
+                                </button>
+                            </div> 
+                            <div class="align-self-end px-1 placeholder-glow">
+                                <button class="btn btn-secondary d-flex px-4 disabled placeholder">
+                                    <span class="material-icons invisible">
+                                        near_me
+                                    </span>
+                                </button>
+                            </div>    
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #blockData>
+        <div *ngIf="statusMaquinas; else disabled">
+            <div class="row d-flex justify-content-start p-0 m-0" >
+                <div *ngFor="let maquina of maquinas" class="col-12 col-xl-6 p-1">
+                    <div class="rounded border shadow row p-0 m-0 h-100" style="background-color: #fff;">
+                        <div class="col-12 col-xl-4 col-sm-5 border">
+                            <img src="assets/maquina.jpg" class="img-fluid">
+                        </div>
+                        <div class="col-12 col-xl-8 col-sm-7 py-3 h-100 d-flex flex-column justify-content-stretch">
+                            <div>
+                                <p class="lead"> {{maquina.nameMachine | uppercase}}
+                                    <b class="float-end  d-flex align-items-center">
+                                        <div>RENGO</div>
+                                        <span class="material-icons">
+                                            location_on
+                                        </span>
+                                    </b>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-muted"> {{maquina.description | lowercase}}</p>
+                            </div>
+                            <div class="d-flex justify-content-end align-content-end">
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/crearDispositivo/{{maquina._id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="agregar nuevo dispositivo">
+                                        <span class="material-icons">
+                                            add_circle_outline
+                                        </span>
+                                        
+                                    </button>
+                                </div>
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/dispositivos/{{maquina._id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="ver dispositivos asociados">
+                                        <span class="material-icons"> 
+                                            sensors  
+                                        </span>
+                                        
+                                    </button>
+                                </div>
+                                <div class="align-self-end px-1">
+                                    <button class="btn btn-warning d-flex px-4" data-bs-toggle="tooltip" data-bs-placement="top" title="eliminar maquina" disabled>
+                                        <span class="material-icons"> 
+                                            delete  
+                                        </span>
+                                    </button>
+                                </div> 
+                                <div class="align-self-end px-1"  *ngIf="maquina.tracker">
+                                    <button class="btn btn-warning d-flex px-4" routerLink="/dashboard/gps/{{maquina._id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="seguimiento maquina">
+                                        <span class="material-icons">
+                                            near_me
+                                        </span>
+                                    </button>
+                                </div>    
+    
+    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template  #disabled>
+            <div class="row d-flex justify-content-center px-2">
+                <div class="col-12 col-md-8 border p-2 p-sm-5 mb-2 text-center rounded shadow" style="background-color: #fff;">
+                    <span class="material-icons mb-2" style="font-size: 7em; color: rgb(180, 180, 187);">
+                        precision_manufacturing
+                    </span>
+                    
+                    <figure class="mt-0 p-0">
+                        <p class="lead">AUN NO TIENES MAQUINAS ASOCIADAS.</p>
+                        <figcaption class="blockquote-footer">
+                            Comienza a monitorear tus dispositivos IoT.
+                        </figcaption>
+                        <blockquote class="blockquote">
+                            <button class="btn btn-danger mb-2 d-inline" routerLink="/dashboard/crearMaquina">Crear Maquina</button>
+                        </blockquote>
+                    </figure>
+                </div>
+            </div>
+        </ng-template>
+    </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

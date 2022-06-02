@@ -1,0 +1,184 @@
+<div class="card mb-3 shadow">
+    <div class="card-body m-0">
+        <nav aria-label="breadcrumb m-0">
+            <ol class="breadcrumb m-0">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/usuarios">USUARIOS</a></li>
+                <li class="breadcrumb-item active" aria-current="page">CREAR USUARIO</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-8 border p-3" style="background-color: #fff;">
+            <form [formGroup]="formCreateUser" (ngSubmit)="onSubmit()">
+                <div class="row d-flex p-0 p-sm-4">
+                    <div class="col-12">
+                        <h3>Formulario Crear Usuario</h3>
+                        <hr>
+                    </div>
+                    <div class="col-12 col-sm-9 order-2 order-sm-1">
+                        <div class="row h-100 d-flex align-items-start align-content-start  flex-wrap">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="nameUser"
+                                        placeholder="nameUser"
+                                        formControlName="name" 
+                                        [ngClass]="{'is-valid': formValid('name'), 'is-invalid': formInvalid('name')}"
+                                    >
+                                    <label for="nameUser">Nombre</label>
+                                    <ng-container *ngIf="formInvalid('name')">
+                                        <small class="text-danger"><i class="fas fa-times"></i> {{formError('name')}}</small> 
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="lastnameUser"
+                                        placeholder="lastnameUser"
+                                        formControlName="lastnames"
+                                        [ngClass]="{'is-valid': formValid('lastnames'), 'is-invalid': formInvalid('lastnames')}"
+                                    >
+                                    <label for="lastnameUser">Apellidos</label>
+                                    <ng-container *ngIf="formInvalid('lastnames')">
+                                        <small class="text-danger"><i class="fas fa-times"></i> {{formError('lastnames')}}</small>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="email" 
+                                        class="form-control text-uppercase" 
+                                        id="emailUser" 
+                                        placeholder="nameUser"
+                                        formControlName="email"
+                                        [ngClass]="{'is-valid': formValid('email'), 'is-invalid': formInvalid('email')}"
+                                    >
+                                    <label for="correo">Correo Electrónico</label>
+                                    <ng-container *ngIf="formInvalid('email')">
+                                        <small class="text-danger"><i class="fas fa-times"></i> {{formError('email')}}</small>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <input 
+                                        type="date" 
+                                        class="form-control text-uppercase" 
+                                        id="birthUser" 
+                                        placeholder="nameUser"
+                                        formControlName="birth"
+                                        [ngClass]="{'is-valid': formValid('birth'), 'is-invalid': formInvalid('birth')}"
+                                        
+                                    >
+                                    <label for="birthUser">Fecha Nacimiento</label>
+                                    <ng-container *ngIf="formInvalid('birth')">
+                                        <small class="text-danger"><i class="fas fa-times"></i> {{formError('birth')}}</small>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating  mb-4">
+                                    <input 
+                                        type="number" 
+                                        class="form-control text-uppercase" 
+                                        id="phoneUser"
+                                        placeholder="nameUser"
+                                        formControlName="phone"
+                                        [ngClass]="{'is-valid': formValid('phone'), 'is-invalid': formInvalid('phone')}"
+                                        autocomplete="off"
+                                        >
+                                    <label for="phoneUser">Telefono</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control text-uppercase" 
+                                        id="rutUser" 
+                                        placeholder="nameUser"
+                                        formControlName="rut"
+                                        [ngClass]="{'is-valid': formValid('rut'), 'is-invalid': formInvalid('rut')}"
+                                    >
+                                    <label for="rutUser">Rut</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-3 order-1 order-sm-2 mb-4 mb-sm-0">
+                        <img src="assets/usuario.jpg" class="img-thumbnail mx-auto d-block rounded" alt="..." width="200">
+                    </div>
+                    <div class="col-12 mt-3 order-3">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        placeholder="nameUser"
+                                        formControlName="password"
+                                        [ngClass]="{'is-valid': formValid('password'), 'is-invalid': formInvalid('password')}"
+                                    >
+                                    <label for="floatingPassword">Contraseña</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-floating mb-3">
+                                    <input 
+                                        type="password" 
+                                        placeholder="nameUser"
+                                        class="form-control"
+                                        formControlName="repeatPassword"
+                                        [ngClass]="{'is-valid': formValid('repeatPassword'), 'is-invalid': formInvalid('repeatPassword')}"
+                                    >
+                                    <label for="floatingPassword">Repetir Contraseña</label>
+                                </div>
+                            </div>
+                            <!--<div class="col-12">
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+                            </div>-->
+                            <!--<div class="col-12 mb-3">
+                                <h5 class="mb-3">Privilegios Usuario</h5>
+                                <hr>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Usuarios
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Maquinas
+                                    </label>
+                                  </div>
+                            </div>-->
+
+                            <div class="col-12" *ngIf="formCreateUser.valid; else disabled">
+                                <div class=" d-grid gap-2" >
+                                    <button class="btn btn-primary btn-lg" type="submit">Crear usuario</button>
+                                </div>
+                                
+                            </div>
+                            <ng-template #disabled>   
+                                <div class=" d-grid gap-2" >           
+                                    <button class="btn btn-primary btn-lg" type="submit" disabled>Crear Usuario</button>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

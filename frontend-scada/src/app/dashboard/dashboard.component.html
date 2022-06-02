@@ -1,0 +1,95 @@
+<nav class="py-2" style="background-color: #fff;">
+    <div class="container-fluid px-3 px-md-4 py-2">
+        <div class="row">
+            <div class="col-4 d-flex align-items-center">
+                <!-- BOTON MENU LATERAL-->
+                <div class="">
+                    <a class="btn btn-transparent mx-1 d-flex" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        <span class="material-icons" style="font-size: 1.6em;color: #000;">menu</span>
+                    </a>
+        
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="color: #2a2c3b;">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU PRINCIPAL</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class="list-group ">
+                                <a routerLink="/dashboard/inicio" routerLinkActive="active" class="list-group-item list-group-item-action border-0 d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                    <div class="me-2">
+                                        <span class="my-auto material-icons fs-2">
+                                            space_dashboard
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="my-auto lead">Tablero Principal</p>
+                                    </div>
+                                    
+                                </a>
+                                <a routerLink="/dashboard/maquinas" routerLinkActive="active" class="list-group-item list-group-item-action border-0 d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                    <div class="me-2">
+                                        <span class="my-auto material-icons fs-2">
+                                            precision_manufacturing
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="my-auto lead">Maquinas</p>
+                                    </div>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--LOGO PANTALLAS GRANDES-->
+                <div class="d-none d-sm-block">
+                    <img src="assets/3.png" alt="" height="55" class="mx-3">   
+                </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <!--LOGO PANTALLAS CHICAS-->
+                <div class="d-block d-sm-none">
+                    <img src="assets/1.png" alt="" height="40" class="mx-3">   
+                </div> 
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center" style="color: #000;">
+                <!--<div class="d-none d-sm-block">
+                    <button type="button" class="btn btn-transparent position-relative mx-3">
+                        <span class="material-icons" style="font-size: 1.6em;color: #fff;">chat</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                          +10
+                          <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="d-none d-sm-block">
+                    <button type="button" class="btn btn-transparent position-relative mx-3">
+                        <span class="material-icons" style="font-size: 1.6em;color: #fff;">notifications</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                          99+
+                          <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </div>-->
+                <div class="d-flex align-items-center dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>
+                        <img src="assets/usuario.jpg" alt="" height="40" class="rounded-circle mx-0 mx-sm-3">
+                    </div>
+                    <div class="d-none d-sm-block">
+                        DEMO USUARIO    
+                    </div> 
+                </div>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <!--<li><a class="dropdown-item" routerLink="datosPersonales">Datos Personales</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                    <li><a class="dropdown-item" href="#" (click)="closeSession()">Cerrar Sesión</a></li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="p-2 h-100">
+    <router-outlet></router-outlet>
+</div>

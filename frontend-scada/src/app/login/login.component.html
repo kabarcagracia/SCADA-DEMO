@@ -1,0 +1,55 @@
+<div id="fondo" class="d-flex align-content-center align-items-start align-items-sm-center">
+    <div class="container rounded">
+        <div class="row px-2 py-2 px-sm-0 d-flex justify-content-center">
+            <div class="col-12 col-sm-4 py-5 px-0 px-sm-5 rounded" style="background-color: #fff;">
+                
+                <div class="text-center mb-4">
+                    <img src="assets/1.png" alt="" width="90px">
+                </div>
+
+                <p class="h2 mb-3 px-0 px-sm-5 text-center">Inicio de Sesión</p>
+                <p class="lead mb-3 px-2 px-sm-0 text-center fs-5">incorpora tus dispositivos iot a nuestra plataforma.</p>
+                
+                <form class="px-2 px-sm-0" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+                    <div class="form-floating mb-4">
+                        <input 
+                            type="email"
+                            class="form-control"
+                            id="emailUser" 
+                            placeholder="name@example.com"
+                            formControlName="email" 
+                            [ngClass]="{'is-valid': formValid('email'), 'is-invalid': formInvalid('email')}"
+                        >
+                        <label for="floatingInput">correo electrónico</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                        <input 
+                            type="password" 
+                            class="form-control" 
+                            id="pwdUser" 
+                            placeholder="Password"
+                            formControlName="password" 
+                            [ngClass]="{'is-valid': formValid('password'), 'is-invalid': formInvalid('password')}">
+                        <label for="floatingPassword">contraseña</label>
+                    </div>
+
+                    <!-- button submit -->
+                    <div class="col-12" *ngIf="formLogin.valid; else disabled">
+                        <div class="d-grid g-2 mb-3">
+                            <button class="btn btn-primary btn-lg" type="submit">Ingresar</button>
+                         </div>  
+                    </div>
+                    <ng-template #disabled>   
+                        <div class="d-grid g-2 mb-3">
+                            <button class="btn btn-primary btn-lg" type="submit" disabled>Ingresar</button>
+                         </div>
+                    </ng-template>
+                    
+                    <div class="text-center">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
