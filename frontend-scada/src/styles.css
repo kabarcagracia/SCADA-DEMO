@@ -1,0 +1,11 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+html, body {
+    min-height: 100vh;
+    background-color: #CDD1DE !important;
+}
+.contornos {
+    border: 1px solid red;
+    border-top-left-radius: 2%;
+}
